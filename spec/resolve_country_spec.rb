@@ -1,4 +1,6 @@
 require "spec_helper"
+require "geoip_redis/country_loader"
+require "geoip_redis/resolver"
 
 describe "Resolve country by ip" do
   let(:redis) { redis_test_connection }
