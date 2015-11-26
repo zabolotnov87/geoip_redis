@@ -1,22 +1,21 @@
-require "ipaddr"
-
 require "spec_helper"
 require "geoip_redis/blocks_parser"
-require "geoip_redis/ip_range"
 
 describe GeoipRedis::BlocksParser do
   subject(:parser) { described_class.new }
 
   describe "#ip_range" do
-    let(:data) { %w(34.231.23.0/24 2077456) }
-    let(:ip_range) do
-      min_ip = IPAddr.new("34.231.23.0")
-      max_ip = IPAddr.new("34.231.23.255")
-      GeoipRedis::IpRange.new("2077456", min_ip, max_ip)
+    let(:location_id) { "234343" }
+    let(:network) { "34.231.23.0/24" }
+    let(:data) { [network, location_id] }
+
+    before do
+      expect(GeoipRedis::IpRange).to receive(:build_from_network)
+        .with(network, location_id)
     end
 
-    it "build ip range from row of blocks csv file" do
-      expect(parser.ip_range(data)).to eq ip_range
+    it "call IpRange.build_from_network(network, location_id)" do
+      parser.ip_range(data)
     end
   end
 end

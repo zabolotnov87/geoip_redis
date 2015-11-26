@@ -10,7 +10,7 @@ module GeoipRedis
     def ip_range(data)
       location_id = data[GEONAME_ID]
       cidr = data[CIDR]
-      IpRange.build(cidr, location_id)
+      IpRange.build_from_network(cidr, location_id)
     end
   end
 end

@@ -1,4 +1,5 @@
 require "redis"
+require "ipaddr"
 
 redis_db = ENV["REDIS_TEST_DB"] || 7
 REDIS_TEST_CONNECTION = Redis.new(url: "redis://localhost:6379/#{redis_db}")
@@ -16,6 +17,10 @@ environment variable REDIS_TEST_DB to use a different database number.
   WARNING
 
   exit
+end
+
+def build_ip_num(ip)
+  IPAddr.new(ip).to_i
 end
 
 RSpec.configure do |config|
