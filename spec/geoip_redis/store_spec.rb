@@ -36,4 +36,25 @@ describe GeoipRedis::Store do
     end
   end
 
+  describe "put and find location" do
+    let(:location_id) { "2324234" }
+    let(:location) do
+      {
+        "country" => "Russia",
+        "city"    => "Moscow",
+      }
+    end
+
+    let(:location_to_store) { {location_id: location_id}.merge(location) }
+    let(:locations_to_store) { [location_to_store] }
+
+    before do
+      store.put_locations(locations_to_store)
+    end
+
+    it "return location" do
+      expect(store.find_location(location_id)).to eq location
+    end
+  end
+
 end
