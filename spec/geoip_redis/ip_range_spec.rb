@@ -1,5 +1,3 @@
-require "ipaddr"
-
 require "spec_helper"
 require "geoip_redis/ip_range"
 
@@ -31,6 +29,32 @@ describe GeoipRedis::IpRange do
   describe "::decode" do
     it "decode string and return ip range" do
       expect(described_class.decode(encoded_ip_range)).to eq ip_range
+    end
+  end
+
+  describe "#member?" do
+    context "when ip is in range" do
+      ips = %w(
+        193.145.15.0
+        193.145.15.45
+        193.145.15.255
+      )
+
+      ips.each do |ip|
+        let(:ip_num) { build_ip_num(ip) }
+
+        it "return true" do
+          expect(ip_range.member?(ip_num)).to eq true
+        end
+      end
+    end
+
+    context "when ip is out of range" do
+      let(:ip_num) { build_ip_num("193.145.16.4") }
+
+      it "should return false" do
+        expect(ip_range.member?(ip_num)).to eq false
+      end
     end
   end
 end

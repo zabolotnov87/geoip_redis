@@ -19,5 +19,9 @@ module GeoipRedis
       "#{location_id}:#{min_ip_num}:#{max_ip_num}"
     end
 
+    def member?(ip_num)
+      (min_ip_num..max_ip_num).member?(ip_num)
+    end
+
   end
 end
