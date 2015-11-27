@@ -1,0 +1,2 @@
+network,geoname_id,registered_country_geoname_id,represented_country_geoname_id,is_anonymous_proxy,is_satellite_provider,postal_code,latitude,longitude
+34.231.23.0/24,2077456,294640,,0,0,34523,32.0533,34.9275
