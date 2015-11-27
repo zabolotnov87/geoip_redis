@@ -12,5 +12,19 @@ module GeoipRedis
       cidr = data[CIDR]
       IpRange.build_from_network(cidr, location_id)
     end
+
+    POSTAL_CODE = 6
+    LATITUDE    = 7
+    LONGITUDE   = 8
+    private_constant :POSTAL_CODE, :LATITUDE, :LONGITUDE
+
+    def location(data)
+      {
+        location_id: data[GEONAME_ID],
+        postal_code: data[POSTAL_CODE],
+        latitude:    data[LATITUDE],
+        longitude:   data[LONGITUDE],
+      }
+    end
   end
 end

@@ -18,4 +18,23 @@ describe GeoipRedis::BlocksParser do
       parser.ip_range(data)
     end
   end
+
+  describe "#location" do
+    let(:data) do
+      [anything, "234"] + Array.new(4, anything) + %w(23452 34.1033 12.2331)
+    end
+
+    let(:location) do
+      {
+        location_id: "234",
+        postal_code: "23452",
+        latitude:    "34.1033",
+        longitude:   "12.2331",
+      }
+    end
+
+    it "build location from row of blocks csv file" do
+      expect(parser.location(data)).to eq location
+    end
+  end
 end
