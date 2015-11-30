@@ -1,14 +1,12 @@
 #!/usr/bin/env ruby
 
 require "bundler/setup"
-require "geoip_redis"
 
-# You can add fixtures and/or initialization code here to make experimenting
-# with your gem easier. You can also use a different console, if you like.
+require "redis"
 
-# (If you use this, don't forget to add pry to your Gemfile!)
-# require "pry"
-# Pry.start
+require "geoip_redis/country_loader"
+require "geoip_redis/city_loader"
+require "geoip_redis/resolver"
 
-require "irb"
-IRB.start
+require "pry"
+Pry.start
