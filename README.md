@@ -1,6 +1,28 @@
+# GeoipRedis
+Puts MaxMind GeoIP2 database to Redis and allows to resolve country/city by ip. The main idea described [here](http://redis4you.com/articles.php?id=018&name=GeoIP+in+Redis).
+
+## Restrictions
+ * lagacy version of GeoIP database isn't supported
+ * working only with IPv4 database
+
+## Installation
+Add this line to your application's Gemfile:
+
+```ruby
+gem "geoip_redis"
+```
+
+And then execute:
+
+    $ bundle
+
+Or install it yourself as:
+
+    $ gem install redis_geoip
+
 ## Usage
 
-working with GeoIP2 Country database:
+Working with GeoIP2 Country database:
 * load:
 
 ```ruby
@@ -26,7 +48,7 @@ resolver = GeoipRedis::Resolver.new(redis)
 country = resolver.resolve("123.234.23.12")
 ```
 
-working with GeoIP2 City database:
+Working with GeoIP2 City database:
 * load:
 
 ```ruby
@@ -51,3 +73,9 @@ resolver = GeoipRedis::Resolver.new(redis)
 
 city = resolver.resolve("123.234.23.12")
 ```
+
+## Contributing
+Bug reports and pull requests are welcome on GitHub at https://github.com/zabolotnov87/geoip_redis. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+
+## Licence
+The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
