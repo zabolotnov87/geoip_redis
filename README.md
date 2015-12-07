@@ -2,7 +2,7 @@
 Puts MaxMind GeoIP2 database to Redis and allows to resolve country/city by ip. The main idea described [here](http://redis4you.com/articles.php?id=018&name=GeoIP+in+Redis).
 
 ## Restrictions
- * lagacy version of GeoIP database isn't supported
+ * legacy version of GeoIP database isn't supported
  * working only with IPv4 database
 
 ## Installation
