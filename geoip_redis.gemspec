@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require File.join(__dir__, "lib", "geoip_redis", "version")
 
 Gem::Specification.new do |spec|

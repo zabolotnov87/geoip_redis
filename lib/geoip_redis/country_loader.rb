@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require "geoip_redis/store"
 require "geoip_redis/csv_reader"
 require "geoip_redis/blocks_parser"

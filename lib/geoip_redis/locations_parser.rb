@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module GeoipRedis
   class LocationsParser
     def country(data)
