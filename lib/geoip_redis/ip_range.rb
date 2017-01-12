@@ -2,7 +2,14 @@
 require "ipaddr"
 
 module GeoipRedis
-  IpRange = Struct.new(:location_id, :min_ip_num, :max_ip_num) do
+  class IpRange
+    attr_reader :location_id, :min_ip_num, :max_ip_num
+
+    def initialize(location_id, min_ip_num, max_ip_num)
+      @location_id = location_id
+      @min_ip_num  = min_ip_num
+      @max_ip_num  = max_ip_num
+    end
 
     def self.build_from_network(network, location_id)
       ip_range = IPAddr.new(network).to_range

@@ -23,7 +23,7 @@ describe GeoipRedis::Store do
       let(:ip_num) { build_ip_num("211.34.14.32") }
 
       it "return stored ip range" do
-        expect(store.find_ip_range(ip_num)).to eq ip_range
+        expect(store.find_ip_range(ip_num).encode).to eq ip_range.encode
       end
     end
 
