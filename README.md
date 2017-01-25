@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/zabolotnov87/geoip_redis.svg?branch=master)](https://travis-ci.org/zabolotnov87/geoip_redis)
+
 # GeoipRedis
 Puts MaxMind GeoIP2 database to Redis and allows to resolve country/city by ip. The main idea described [here](http://redis4you.com/articles.php?id=018&name=GeoIP+in+Redis).
 
